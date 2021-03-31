@@ -9,34 +9,35 @@ import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Admin from './components/Admin/Admin';
+import ManageProduct from './components/ManageProduct/ManageProduct';
+import AddProduct from './components/AddProduct/AddProduct';
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [products, setProducts] = useState([]);
+  console.log(products);
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Header></Header>
         <Switch>
           <Route exact path="/">
-            <Home></Home>
+            <Home products={products} setProducts={setProducts}></Home>
           </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
           {/* :ticketId */}
           <PrivateRoute path="/orders">
-            <Orders></Orders>
+            <Orders products={products}></Orders>
           </PrivateRoute>
           <Route path="/admin/:dynamic">
             <Admin></Admin>
           </Route>
 
           {/* Not Found Route */}
-          <Route path="/admin">
-            <NotFound></NotFound>
-          </Route>
           <Route path="*">
             <NotFound></NotFound>
           </Route>

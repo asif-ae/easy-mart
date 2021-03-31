@@ -48,7 +48,7 @@ const AddProduct = () => {
       <div className="px-5 py-3">
         <h4 className="px-3">Add Product</h4>
       </div>
-      <div className="p-5 addProductForm">
+      <div className="p-5 adminLightBG">
         <form onSubmit={handleSubmit(onSubmit)} className="formStyle">
           <div className="p-5">
             <div className="row">
