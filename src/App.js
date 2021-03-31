@@ -8,6 +8,7 @@ import Orders from './components/Orders/Orders';
 import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Admin from './components/Admin/Admin';
 
 export const UserContext = createContext();
 
@@ -21,12 +22,20 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
           {/* :ticketId */}
           <PrivateRoute path="/orders">
             <Orders></Orders>
           </PrivateRoute>
-          <Route path="/login">
-            <Login></Login>
+          <Route path="/admin/:dynamic">
+            <Admin></Admin>
+          </Route>
+
+          {/* Not Found Route */}
+          <Route path="/admin">
+            <NotFound></NotFound>
           </Route>
           <Route path="*">
             <NotFound></NotFound>

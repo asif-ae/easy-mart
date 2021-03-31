@@ -1,0 +1,37 @@
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.aside {
+  height: calc(100vh - 56px);
+}
+
+.productList,
+.productList > a {
+  color: tomato !important;
+  background-color: white !important;
+}
+
+.productList:hover,
+.productList:hover > a,
+.asideActive,
+.asideActive > a {
+  color: white !important;
+  background-color: tomato !important;
+}
+
+/* Add Product Form Style */
+.addProductForm {
+  background-color: #FFBAAD;
+  height: calc(100vh - 124px);
+}
+
+/* Form Styles */
+.formStyle {
+  background-color: white;
+  border-radius: 20px;
+}

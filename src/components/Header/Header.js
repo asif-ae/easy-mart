@@ -15,13 +15,14 @@ const Header = () => {
   );
   return (
     <div className="container-fluid p-0">
-      <Navbar expand="lg" className="px-3 bg-purple">
-        <Link to="/"><Navbar.Brand className="nav-link text-white">Hot Mart</Navbar.Brand></Link>
+      <Navbar expand="lg" className="px-3 bg-tomato">
+        <Link to="/"><Navbar.Brand className="nav-link text-white">Easy Mart</Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-white" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end px-3">
           <Nav className="text-right">
             <div className="px-1"><Link to="/" className="nav-link text-white">Home</Link></div>
             <div className="px-1"><Link to="/orders" className="nav-link text-white">Orders</Link></div>
+            <div className="px-1"><Link to="/admin/manageProduct" className="nav-link text-white">Admin</Link></div>
             {
               loggedInUser.name ?
                 <OverlayTrigger

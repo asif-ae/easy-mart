@@ -7,14 +7,14 @@
 
 .google-box {
   cursor: pointer;
-  border: 1px solid darkblue;
+  border: 1px solid tomato;
   background-color: white;
 }
 
 .google-icon {
-  background-color: darkblue;
+  background-color: tomato;
 }
 
 .google-text {
-  color: darkblue;
+  color: tomato;
 }
