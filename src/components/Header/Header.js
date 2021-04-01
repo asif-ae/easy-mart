@@ -23,6 +23,7 @@ const Header = () => {
             <div className="px-1"><Link to="/" className="nav-link text-white">Home</Link></div>
             <div className="px-1"><Link to="/orders" className="nav-link text-white">Orders</Link></div>
             <div className="px-1"><Link to="/admin/manageProduct" className="nav-link text-white">Admin</Link></div>
+            <div className="px-1"><Link to="/deals" className="nav-link text-white">Deals</Link></div>
             {
               loggedInUser.name ?
                 <OverlayTrigger

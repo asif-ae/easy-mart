@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Admin from './components/Admin/Admin';
 import Checkout from './components/Checkout/Checkout';
+import Deals from './components/Deals/Deals';
 
 export const UserContext = createContext();
 
@@ -31,34 +32,42 @@ function App() {
       <Router>
         <Header></Header>
         <Switch>
+          {/* Local Route(s) */}
           <Route exact path="/">
             <Home
               products={products} setProducts={setProducts}
               orderInfo={orderInfo} setOrderInfo={setOrderInfo}
-            ></Home>
+              ></Home>
+          </Route>
+          <Route path="/deals">
+            <Deals></Deals>
           </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
+          {/* Local Route(s) */}
+
+          {/* Private Route(s) */}
           <PrivateRoute path="/checkout">
             <Checkout
               products={products}
               orderInfo={orderInfo}
               setOrderInfo={setOrderInfo}
-            ></Checkout>
+              ></Checkout>
           </PrivateRoute>
-          {/* :ticketId */}
           <PrivateRoute path="/orders">
             <Orders></Orders>
           </PrivateRoute>
           <PrivateRoute path="/admin/:dynamic">
             <Admin></Admin>
           </PrivateRoute>
+          {/* Private Route(s) */}
 
-          {/* Not Found Route */}
+          {/* Not Found Route(s) */}
           <Route path="*">
             <NotFound></NotFound>
           </Route>
+          {/* Not Found Route(s) */}
         </Switch>
       </Router>
     </UserContext.Provider>

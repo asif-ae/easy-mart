@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 const Checkout = (props) => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
   const {orderInfo, setOrderInfo} = props;
-  const {productName, quantity, price, ownerName, email} = props.orderInfo;
+  const {productName, quantity, price} = props.orderInfo;
   const handleOrder = () => {
     const newOrder = {...orderInfo};
     newOrder.date = new Date();
+    newOrder.ownerName = loggedInUser.name;
+    newOrder.email = loggedInUser.email;
     setOrderInfo(newOrder);
 
     // Send Orders
@@ -30,10 +35,10 @@ const Checkout = (props) => {
           <div className="round-10">
             <div className="row">
               <div className="col-md-6">
-                <h5 className="m-0">Owner Name: {ownerName}</h5>
+                <h5 className="m-0">Owner Name: {loggedInUser.name}</h5>
               </div>
               <div className="col-md-6 text-right">
-                <h5 className="m-0">Email Address: {email}</h5>
+                <h5 className="m-0">Email Address: {loggedInUser.email}</h5>
               </div>
             </div>
           </div>

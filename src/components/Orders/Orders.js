@@ -46,7 +46,7 @@ const Orders = () => {
                 <p className="m-0">Product Name</p>
               </div>
               <div className="col-md-4">
-                <p className="m-0">Checkout Date {`&`} Times</p>
+                <p className="m-0">Checkout Date {`&`} Time(s)</p>
               </div>
               <div className="col-md-2">
                 <p className="m-0">Quantity</p>
