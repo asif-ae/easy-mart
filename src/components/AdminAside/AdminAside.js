@@ -5,13 +5,12 @@ import { Link, useParams } from 'react-router-dom';
 
 const AdminAside = () => {
   let params = useParams("/admin/:dynamic");
-  // const adminDynamic = params.dynamic === "manageProduct" || params.dynamic === "addProduct" || params.dynamic === "editProduct";
 
   const manageProductClass = params.dynamic === "manageProduct" ? "asideActive" : "";
   const addProductClass = params.dynamic === "addProduct" ? "asideActive" : "";
   const editProductClass = params.dynamic === "editProduct" ? "asideActive" : "";
   return (
-    <div className="pt-3 aside bg-tomato">
+    <div className="aside bg-tomato">
       <div className={`productList ${manageProductClass}`}>
         <Link to='/admin/manageProduct'>
           <div id="manageProduct" className="row m-0 p-0">

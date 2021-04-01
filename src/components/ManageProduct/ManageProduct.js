@@ -9,7 +9,7 @@ const ManageProduct = (props) => {
     fetch('http://localhost:5555/products')
     .then(res => res.json())
     .then(data => setProducts(data));
-  }, [setProducts]);
+  }, [setProducts, products]);
 
   const deleteProduct = (id) => {
     console.log(id);

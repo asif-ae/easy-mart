@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Alert, Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
 const EditProduct = (props) => {
@@ -18,11 +19,24 @@ const EditProduct = (props) => {
     .then(res => res.json())
     .then(data => console.log('updated:', data));
   }
+
+  const AlertDismissibleExample = () => {
+    const [show, setShow] = useState(true);
+    if (show) {
+      return (
+        <Alert variant="warning" className="mt-5" onClose={() => setShow(false)} dismissible>
+          <Alert.Heading>Note:</Alert.Heading>
+          <p>If you want to see the changes, you have to go the <b>"Home"</b> or the <b>"Manage Product"</b> page.</p>
+        </Alert>
+      );
+    }
+    return <Button varient="warning" className="d-none" onClick={() => setShow(true)}>Show Alert</Button>;
+  }
   
   return (
     <div>
       <div className="px-3 py-3">
-        <h4 className="px-3">Manage Product</h4>
+        <h4 className="px-3">Edit Product</h4>
       </div>
       <div className="p-2 adminLightBG">
         <div className="p-3 bg-white round-10">
@@ -64,11 +78,14 @@ const EditProduct = (props) => {
                         <input name="addPrice" id="addPrice" placeholder="Enter Price Value" className="form-control" defaultValue={price} ref={register} />
                       </div>
                       <div className="col-md-1 text-center m-0 p-0">
-                        <input name="itemID" id="itemID" className="d-none" value={_id} ref={register} />
-                        <input className="btn btn-success" type="submit" value="Update" />
+                        <input name="itemID" id="itemID" className="d-none" defaultValue={_id} ref={register} />
+                        <input className="btn btn-success" type="submit" defaultValue="Update" />
                       </div>
                     </div>
                   </form>
+                  <div>
+                    <AlertDismissibleExample />
+                  </div>
                 </div>
               );
             })

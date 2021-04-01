@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Alert, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
@@ -44,6 +45,22 @@ const AddProduct = () => {
     });
   }
 
+  const AlertDismissibleExample = () => {
+    const [show, setShow] = useState(true);
+    if (show) {
+      return (
+        <Alert variant="warning" className="mt-5" onClose={() => setShow(false)} dismissible>
+          <Alert.Heading>Note:</Alert.Heading>
+          <ol>
+            <li>This form wasn't validated perfectly. You should enter the reasonable value into it.</li>
+            <li>If you want to see the changes, you have to go the <b>"Home"</b> or the <b>"Manage Product"</b> page.</li>
+          </ol>
+        </Alert>
+      );
+    }
+    return <Button varient="warning" className="d-none" onClick={() => setShow(true)}>Show Alert</Button>;
+  }
+
   return (
     <div>
       <div className="px-5 py-3">
@@ -78,6 +95,9 @@ const AddProduct = () => {
             </div>
           </div>
         </form>
+        <div>
+          <AlertDismissibleExample />
+        </div>
       </div>
     </div>
   );
