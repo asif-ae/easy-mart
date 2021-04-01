@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  // , watch, errors {for later use}
+  const { register, handleSubmit } = useForm();
 
   // State for storing image data
   const [imageURL, setImageURL] = useState(null);

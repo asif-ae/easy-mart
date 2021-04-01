@@ -1,12 +1,24 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const EditProduct = (props) => {
   const {product} = props;
-  console.log(product);
 
-  const updateProduct = (id) => {
-    console.log(id)
+  // , watch, errors {for later use}
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    fetch('http://localhost:5555/update/'+data.itemID, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => console.log('updated:', data));
   }
+  
   return (
     <div>
       <div className="px-3 py-3">
@@ -37,24 +49,26 @@ const EditProduct = (props) => {
           {
             product.map(choosedProduct => {
               const {name, weight, price, _id} = choosedProduct;
-              console.log(name, weight, price, _id);
 
               return (
                 <div className="p-3" key={_id}>
-                  <div className="row">
-                    <div className="col-md-5">
-                      <p>{name}</p>
+                  <form className="formStyle" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="row">
+                      <div className="col-md-5">
+                        <input name="productName" id="productName" placeholder="Enter Product Name" className="form-control" defaultValue={name} ref={register} />
+                      </div>
+                      <div className="col-md-3">
+                        <input name="weight" id="weight" placeholder="Enter Weight Value" className="form-control" defaultValue={weight} ref={register} />
+                      </div>
+                      <div className="col-md-3">
+                        <input name="addPrice" id="addPrice" placeholder="Enter Price Value" className="form-control" defaultValue={price} ref={register} />
+                      </div>
+                      <div className="col-md-1 text-center m-0 p-0">
+                        <input name="itemID" id="itemID" className="d-none" value={_id} ref={register} />
+                        <input className="btn btn-success" type="submit" value="Update" />
+                      </div>
                     </div>
-                    <div className="col-md-3">
-                      <p>{weight}</p>
-                    </div>
-                    <div className="col-md-3">
-                      <p>{price}</p>
-                    </div>
-                    <div className="col-md-1 text-center d-flex m-0 p-0">
-                      <button className="btn btn-success mr-1" onClick={() => updateProduct(_id)}>Update</button>
-                    </div>
-                  </div>
+                  </form>
                 </div>
               );
             })
