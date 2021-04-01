@@ -40,17 +40,17 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/checkout">
+          <PrivateRoute path="/checkout">
             <Checkout
               products={products}
               orderInfo={orderInfo}
               setOrderInfo={setOrderInfo}
             ></Checkout>
-          </Route>
+          </PrivateRoute>
           {/* :ticketId */}
-          <Route path="/orders">
+          <PrivateRoute path="/orders">
             <Orders></Orders>
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/admin/:dynamic">
             <Admin></Admin>
           </PrivateRoute>

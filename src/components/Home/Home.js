@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import HomePageCard from '../HomePageCard/HomePageCard';
 
 const Home = (props) => {
@@ -9,11 +10,25 @@ const Home = (props) => {
     .then(data => setProducts(data));
   }, [setProducts]);
   console.log(products);
+  const spinner = (
+    <div className="w-100">
+      <div className="d-flex justify-content-center align-items-center spinner-style">
+        <Spinner animation="grow" variant="danger" />
+      </div>
+    </div>
+  );
   return (
-    <div className="background">
-      <div className="background-opacity d-flex align-items-center">
+    <div>
+      <div className="d-flex align-items-center">
         <div className="container pt-3">
           <div className="row">
+
+            {/* Spinner */}
+            {
+              products.length === 0 && spinner
+            }
+            {/* Spinner */}
+
             {
               products.map(data => {
                 return (

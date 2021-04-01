@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { UserContext } from '../../App';
 
 const Orders = () => {
@@ -10,6 +11,13 @@ const Orders = () => {
     .then(data => setOrders(data));
   }, [loggedInUser.email]);
   
+  const spinner = (
+    <div className="w-100">
+      <div className="d-flex justify-content-center align-items-center spinner-style">
+        <Spinner animation="grow" variant="danger" />
+      </div>
+    </div>
+  );
 
   // Calculate price
   let totalPrice = 0;
@@ -49,6 +57,13 @@ const Orders = () => {
             </div>
           </div>
         </div>
+
+        {/* Spinner */}
+        {
+          orders.length === 0 && spinner
+        }
+        {/* Spinner */}
+        
         {
           orders.map(order => {
             const {_id, productName, date, quantity, price} = order;

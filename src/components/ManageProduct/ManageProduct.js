@@ -1,7 +1,7 @@
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
-import { Alert } from 'react-bootstrap';
+import { Alert, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ManageProduct = (props) => {
@@ -31,6 +31,14 @@ const ManageProduct = (props) => {
     })
   }
 
+  const spinner = (
+    <div className="w-100">
+      <div className="d-flex justify-content-center align-items-center spinner-style">
+        <Spinner animation="grow" variant="danger" />
+      </div>
+    </div>
+  );
+
   return (
     <div>
       <div className="px-3 py-3">
@@ -56,6 +64,12 @@ const ManageProduct = (props) => {
               </div>
             </div>
           </div>
+
+          {/* Spinner */}
+            {
+              products.length === 0 && spinner
+            }
+          {/* Spinner */}
 
           {/* Table Body */}
           {
