@@ -9,8 +9,6 @@ import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Admin from './components/Admin/Admin';
-import ManageProduct from './components/ManageProduct/ManageProduct';
-import AddProduct from './components/AddProduct/AddProduct';
 
 export const UserContext = createContext();
 
@@ -33,9 +31,9 @@ function App() {
           <PrivateRoute path="/orders">
             <Orders products={products}></Orders>
           </PrivateRoute>
-          <Route path="/admin/:dynamic">
+          <PrivateRoute path="/admin/:dynamic">
             <Admin></Admin>
-          </Route>
+          </PrivateRoute>
 
           {/* Not Found Route */}
           <Route path="*">
