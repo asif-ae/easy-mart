@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 const HomePageCard = (props) => {
   const {_id, name, price, image, weight} = props.data;
   const {orderInfo, setOrderInfo} = props;
   console.log(orderInfo);
   const weightString = ` - ${weight}`;
+
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const handleOrder = () => {
     const newOrder = {...orderInfo};
     newOrder.id = _id;
-    newOrder.name = name;
+    newOrder.productName = name;
     newOrder.price = price;
+    newOrder.ownerName = loggedInUser.name;
+    newOrder.email = loggedInUser.email;
     setOrderInfo(newOrder);
   }
   return (

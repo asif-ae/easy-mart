@@ -18,7 +18,9 @@ function App() {
   const [products, setProducts] = useState([]);
   const [orderInfo, setOrderInfo] = useState({
     id: '',
-    name: '',
+    productName: '',
+    ownerName: '',
+    email: '',
     quantity: 1,
     date: '',
     price: ''

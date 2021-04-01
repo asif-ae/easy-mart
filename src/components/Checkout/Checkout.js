@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Checkout = (props) => {
   const {orderInfo, setOrderInfo} = props;
-  const {name, quantity, price} = props.orderInfo;
+  const {productName, quantity, price, ownerName, email} = props.orderInfo;
   const handleOrder = () => {
     const newOrder = {...orderInfo};
     newOrder.date = new Date();
@@ -28,14 +29,26 @@ const Checkout = (props) => {
         <div className="card-header bg-transparent border-success">
           <div className="round-10">
             <div className="row">
+              <div className="col-md-6">
+                <h5 className="m-0">Owner Name: {ownerName}</h5>
+              </div>
+              <div className="col-md-6 text-right">
+                <h5 className="m-0">Email Address: {email}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="card-header text-success">
+          <div className="round-10">
+            <div className="row">
               <div className="col-md-7">
-                <small className="m-0">Product Name</small>
+                <p className="m-0">Product Name</p>
               </div>
               <div className="col-md-3">
-                <small className="m-0">Quantity</small>
+                <p className="m-0">Quantity</p>
               </div>
               <div className="col-md-2">
-                <small className="m-0">Price</small>
+                <p className="m-0">Price</p>
               </div>
             </div>
           </div>
@@ -44,7 +57,7 @@ const Checkout = (props) => {
           <div className="round-10">
             <div className="row">
               <div className="col-md-7">
-                <p className="m-0">{name}</p>
+                <p className="m-0">{productName}</p>
               </div>
               <div className="col-md-3">
                 <p className="m-0">{quantity}</p>
@@ -69,7 +82,9 @@ const Checkout = (props) => {
         </div>
       </div>
       <div className="text-right">
-        <button onClick={handleOrder} className="btn btn-success">Checkout</button>
+        <Link to="/orders">
+          <button onClick={handleOrder} className="btn btn-success">Checkout</button>
+        </Link>
       </div>
     </div>
   );

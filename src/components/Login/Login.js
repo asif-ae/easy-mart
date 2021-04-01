@@ -49,8 +49,8 @@ const Login = () => {
     .signInWithPopup(providers)
     .then((result) => {
       const getUser = result.user;
-      const {displayName, photoURL} = getUser;
-      const signedInUser = {name: displayName, photo: photoURL};
+      const {displayName, photoURL, email} = getUser;
+      const signedInUser = {name: displayName, photo: photoURL, email};
       setLoggedInUser(signedInUser);
       history.replace(from);
     }).catch((error) => {

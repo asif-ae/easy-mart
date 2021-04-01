@@ -1,7 +1,7 @@
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
-import { Alert, Button } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+import { Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ManageProduct = (props) => {
@@ -29,19 +29,6 @@ const ManageProduct = (props) => {
     .then(data => {
       setProduct(data);
     })
-  }
-
-  const AlertDismissibleExample = () => {
-    const [show, setShow] = useState(true);
-    if (show) {
-      return (
-        <Alert variant="warning" className="mt-5" onClose={() => setShow(false)} dismissible>
-          <Alert.Heading>Note:</Alert.Heading>
-          <p>Product edit function is available now. You have to click the <b>"EDIT"</b> icon for edit a item.</p>
-        </Alert>
-      );
-    }
-    return <Button varient="warning" className="d-none" onClick={() => setShow(true)}>Show Alert</Button>;
   }
 
   return (
@@ -96,13 +83,15 @@ const ManageProduct = (props) => {
                       </button>
                     </div>
                   </div>
-                  <div>
-                    <AlertDismissibleExample />
-                  </div>
                 </div>
               );
             })
           }
+        </div>
+        <div className="d-flex justify-content-center text-center mt-5">
+          <Alert variant="warning" className="w-75">
+            <div>Product edit function is available now. You have to click the <b>"EDIT"</b> icon for edit a item.</div>
+          </Alert>
         </div>
       </div>
     </div>
