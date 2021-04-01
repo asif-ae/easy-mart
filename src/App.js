@@ -9,12 +9,20 @@ import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Admin from './components/Admin/Admin';
+import Checkout from './components/Checkout/Checkout';
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [products, setProducts] = useState([]);
+  const [orderInfo, setOrderInfo] = useState({
+    id: '',
+    name: '',
+    quantity: 1,
+    date: '',
+    price: ''
+  });
   console.log(products);
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
@@ -22,15 +30,25 @@ function App() {
         <Header></Header>
         <Switch>
           <Route exact path="/">
-            <Home products={products} setProducts={setProducts}></Home>
+            <Home
+              products={products} setProducts={setProducts}
+              orderInfo={orderInfo} setOrderInfo={setOrderInfo}
+            ></Home>
           </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
+          <Route path="/checkout">
+            <Checkout
+              products={products}
+              orderInfo={orderInfo}
+              setOrderInfo={setOrderInfo}
+            ></Checkout>
+          </Route>
           {/* :ticketId */}
-          <PrivateRoute path="/orders">
-            <Orders products={products}></Orders>
-          </PrivateRoute>
+          <Route path="/orders">
+            <Orders></Orders>
+          </Route>
           <PrivateRoute path="/admin/:dynamic">
             <Admin></Admin>
           </PrivateRoute>
