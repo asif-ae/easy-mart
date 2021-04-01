@@ -80,14 +80,20 @@ const Orders = () => {
                       <div className="col-md-4">
                         <p className="m-0">
                           Date: {(new Date(date)).toDateString()}<br/>
-                          Time: {(new Date(date)).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })}
+                          Time: {(new Date(date)).toLocaleString('en-US',
+                            {
+                              hour: 'numeric',
+                              minute: 'numeric',
+                              second: 'numeric',
+                              hour12: true })
+                            }
                         </p>
                       </div>
                       <div className="col-md-2">
                         <p className="m-0">{quantity}</p>
                       </div>
                       <div className="col-md-2">
-                        <p className="m-0">{price}</p>
+                        <p className="m-0">${price}</p>
                       </div>
                     </div>
                   </div>

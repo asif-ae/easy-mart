@@ -86,7 +86,7 @@ const ManageProduct = (props) => {
                       <p>{weight}</p>
                     </div>
                     <div className="col-md-3">
-                      <p>{price}</p>
+                      <p>${price}</p>
                     </div>
                     <div className="col-md-1 text-center d-flex m-0 p-0">
                       <Link to="/admin/editProduct">

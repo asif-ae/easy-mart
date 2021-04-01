@@ -24,9 +24,6 @@ const Login = () => {
   // Getting data from parent component
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-  // This state is define is the person a new user or not
-  // const [newUser, setNewUser] = useState(false);
-
   // This useState stored users data
   const [user, setUser] = useState({
     error: ''
