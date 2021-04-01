@@ -61,6 +61,15 @@ const AddProduct = () => {
     return <Button varient="warning" className="d-none" onClick={() => setShow(true)}>Show Alert</Button>;
   }
 
+  const formInput = (formName, labelName) => {
+    return (
+      <div className="col-md-6 mb-3">
+        <label htmlFor={formName} className="form-label">{labelName}</label>
+        <input name={formName} id={formName} placeholder={`Enter ${labelName}`} className="form-control" ref={register} />
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="px-5 py-3">
@@ -70,18 +79,9 @@ const AddProduct = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="formStyle">
           <div className="p-5">
             <div className="row">
-              <div className="col-md-6 mb-3">
-                <label htmlFor="productName" className="form-label">Product Name</label>
-                <input name="productName" id="productName" placeholder="Enter Product Name" className="form-control" ref={register} />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="weight" className="form-label">Weight</label>
-                <input name="weight" id="weight" placeholder="Enter Weight Value" className="form-control" ref={register} />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="addPrice" className="form-label">Add Price</label>
-                <input name="addPrice" id="addPrice" placeholder="Enter Price Value" className="form-control" ref={register} />
-              </div>
+              {formInput("productName", "Product Name")}
+              {formInput("weight", "Weight")}
+              {formInput("addPrice", "Price")}
               <div className="col-md-6 mb-3">
                 <div className="pb-2">Add Photo</div>
                 <div className="custom-file">
