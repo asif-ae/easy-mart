@@ -16,9 +16,9 @@ const HomePageCard = (props) => {
     setOrderInfo(newOrder);
   }
   return (
-    <div className="col-md-6 col-lg-3">
+    <div className="col-md-6 col-lg-3 mb-3">
       <div className="item single-card bg-light text-primary">
-        <div className="text-center d-flex align-items-center" style={{height: "250px"}}>
+        <div className="text-center d-flex align-items-center">
           <img src={image} alt={name} className="card-image w-100"/>
         </div>
         <div className="p-2">

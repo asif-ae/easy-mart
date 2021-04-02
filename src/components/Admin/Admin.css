@@ -7,7 +7,7 @@ a:hover {
 }
 
 .aside {
-  height: 100%;
+  height: auto;
   min-height: calc(100vh - 56px);
 }
 
@@ -28,7 +28,7 @@ a:hover {
 /* Add Product Form Style */
 .adminLightBG {
   background-color: #FFBAAD;
-  height: 100%;
+  height: auto;
   min-height: calc(100vh - 124px);
 }
 
