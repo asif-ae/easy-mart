@@ -5,7 +5,7 @@ import HomePageCard from '../HomePageCard/HomePageCard';
 const Home = (props) => {
   const {products, setProducts, orderInfo, setOrderInfo} = props;
   useEffect(() => {
-    fetch('http://localhost:5555/products')
+    fetch('https://mighty-lowlands-97984.herokuapp.com/products')
     .then(res => res.json())
     .then(data => setProducts(data));
   }, [setProducts]);

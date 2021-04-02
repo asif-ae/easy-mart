@@ -19,7 +19,7 @@ const AddProduct = () => {
       price: data.addPrice,
       image: imageURL
     }
-    const serverURL = 'http://localhost:5555/addProduct';
+    const serverURL = 'https://mighty-lowlands-97984.herokuapp.com/addProduct';
     fetch(serverURL, {
       method: 'POST',
       headers: {

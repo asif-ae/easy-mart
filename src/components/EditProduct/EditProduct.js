@@ -9,7 +9,7 @@ const EditProduct = (props) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    fetch('http://localhost:5555/update/'+data.itemID, {
+    fetch('https://mighty-lowlands-97984.herokuapp.com/update/'+data.itemID, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'

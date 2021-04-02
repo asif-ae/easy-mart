@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom';
 const ManageProduct = (props) => {
   const {products, setProducts, setProduct} = props;
   useEffect(() => {
-    fetch('http://localhost:5555/products')
+    fetch('https://mighty-lowlands-97984.herokuapp.com/products')
     .then(res => res.json())
     .then(data => setProducts(data));
   }, [setProducts, products]);
 
   const deleteProduct = (id) => {
     console.log(id);
-    fetch(`http://localhost:5555/delete/${id}`, {
+    fetch(`https://mighty-lowlands-97984.herokuapp.com/delete/${id}`, {
       method: 'DELETE'
     })
     .then(res => res.json())
@@ -24,7 +24,7 @@ const ManageProduct = (props) => {
   }
 
   const loadProduct = (id) => {
-    fetch(`http://localhost:5555/product/${id}`)
+    fetch(`https://mighty-lowlands-97984.herokuapp.com/product/${id}`)
     .then(res => res.json())
     .then(data => {
       setProduct(data);

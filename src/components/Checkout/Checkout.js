@@ -15,7 +15,7 @@ const Checkout = (props) => {
     setOrderInfo(newOrder);
 
     // Send Orders
-    fetch('http://localhost:5555/addOrders', {
+    fetch('https://mighty-lowlands-97984.herokuapp.com/addOrders', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
