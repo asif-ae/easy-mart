@@ -18,7 +18,9 @@ const HomePageCard = (props) => {
   return (
     <div className="col-md-6 col-lg-3">
       <div className="item single-card bg-light text-primary">
-        <img src={image} alt={name} className="card-image w-100"/>
+        <div className="text-center">
+          <img src={image} alt={name} style={{height: "250px"}} className="card-image"/>
+        </div>
         <div className="p-2">
           <p>
             <b>

@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 const EditProduct = (props) => {
   const {product} = props;
 
-  // , watch, errors {for later use}
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {

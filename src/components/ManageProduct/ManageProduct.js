@@ -101,6 +101,7 @@ const ManageProduct = (props) => {
               );
             })
           }
+          {/* Table Body */}
         </div>
         <div className="d-flex justify-content-center text-center mt-5">
           <Alert variant="warning" className="w-75">

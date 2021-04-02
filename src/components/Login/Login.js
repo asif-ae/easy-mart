@@ -27,7 +27,6 @@ const Login = () => {
   // This useState stored users data
   const [user, setUser] = useState({
     error: ''
-    // success: false
   });
   // Destructuring from user useState
   const {error} = user;
@@ -66,8 +65,11 @@ const Login = () => {
             <h3>Login</h3>
           </div>
         </div>
+
         {/* Show error messages */}
         <p className="text-center text-danger">{error}</p>
+        {/* Show error messages */}
+        
         <div className="d-flex justify-content-center my-3 pb-5">
           <div className="rounded-pill google-box" onClick={handleGoogleSignIn}>
             <div className="p-2 d-flex align-items-center">

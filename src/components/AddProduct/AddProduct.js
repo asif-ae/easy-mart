@@ -4,7 +4,6 @@ import { Alert, Button, Spinner } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
-  // , watch, errors {for later use}
   const { register, handleSubmit } = useForm();
 
   // State for storing image data
@@ -96,8 +95,6 @@ const AddProduct = () => {
       <input name="addPhoto" id="customFile" type="file" className="custom-file-input" onChange={handleImageUpload} />
     </div>
   );
-  
-  console.log(uploadImageDetail);
 
   return (
     <div>
@@ -113,15 +110,14 @@ const AddProduct = () => {
               {formInput("addPrice", "Price")}
               <div className="col-md-6 mb-3">
                 <div className="pb-2">Add Photo</div>
-                {/* <div className="custom-file">
-                  <label htmlFor="customFile" className="custom-file-label">Add A Photo</label>
-                </div> */}
+                  {/* Spinner with toggler */}
                   {
                     uploadImageDetail === false && imageFileInput
                   }
                   {
                     uploadImageDetail && spinner
                   }
+                  {/* Spinner with toggler */}
               </div>
             </div>
             <div className="d-flex justify-content-center">

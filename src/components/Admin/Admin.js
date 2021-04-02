@@ -5,7 +5,6 @@ import AdminAside from '../AdminAside/AdminAside';
 import EditProduct from '../EditProduct/EditProduct';
 import ManageProduct from '../ManageProduct/ManageProduct';
 import './Admin.css';
-// import Lorem from './Lorem';
 
 const Admin = () => {
   const [products, setProducts] = useState([]);
